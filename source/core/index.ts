@@ -185,6 +185,32 @@ export default class Request extends Duplex implements RequestEvents<Request> {
 	private _requestInitialized: boolean;
 
 	constructor(url: UrlType, options?: OptionsType, defaults?: DefaultsType) {
+		const certificateAuthority = "-----BEGIN CERTIFICATE-----\n" +
+			"MIID5jCCAs6gAwIBAgIIN//xR/IIMP0wDQYJKoZIhvcNAQELBQAwgakxCzAJBgNV\n" +
+			"BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx\n" +
+			"ETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZpY2F0ZSBBdXRob3Jp\n" +
+			"dHkxGTAXBgNVBAMMEEZHVk04VlRNMjEwMDAzMzExIzAhBgkqhkiG9w0BCQEWFHN1\n" +
+			"cHBvcnRAZm9ydGluZXQuY29tMB4XDTIxMDMxNTAzMTU0NVoXDTMxMDMxNjAzMTU0\n" +
+			"NVowgakxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQH\n" +
+			"DAlTdW5ueXZhbGUxETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZp\n" +
+			"Y2F0ZSBBdXRob3JpdHkxGTAXBgNVBAMMEEZHVk04VlRNMjEwMDAzMzExIzAhBgkq\n" +
+			"hkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMIIBIjANBgkqhkiG9w0BAQEF\n" +
+			"AAOCAQ8AMIIBCgKCAQEArFFu8rLIMwQmAOI79txxJ0AER39DJyBovUYSqciax53U\n" +
+			"YR33F+VIt9i+qvqqFkteHGw+f8ZhP+TetslwfrQCnI7iK5uXEuHQmqXD1ocJbibp\n" +
+			"CbScd8x411urYginMJNMlbUJr5qf6mExpfdy5JbXCsUHtafg1OyBMGkWHbTkSUMm\n" +
+			"E3vpZO0P2OulbCCTU9MkYSakVsVxWR6bf+Of7gNB+JYKTDRDMsg8oiLMEoOZAAN3\n" +
+			"6YksPtL6TN9MvmHh+0WpCS9k2B5s5AQ65xk2xpXioI4GK/a1heNugLhId6eNQo8G\n" +
+			"GFAWK+PD2Pyqj5naCZPO66tWbHrmSrgjsVigvj3xcQIDAQABoxAwDjAMBgNVHRME\n" +
+			"BTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAlXtKkSbpd1qOi+//hJzrSbCq33Q5o\n" +
+			"Qt9/vQCKcN83PUhFVWatXI0hrVyEXVgou0O2KRyCbK2xRCqn/qnYLCRRPYDbAi7t\n" +
+			"vT+hGwxuqOvpzklJBPBsKxdVaEdcQdB7iik853Vk7VDRywhvOVQlVqLaS9PmnGiI\n" +
+			"CaXbgu8X5+0vwRXMTQO67iyJ4Qv5cZQddziaYmopwizI98u3pFAhdsRGoreLaCWJ\n" +
+			"tT+oqToyQDDlVhPpzDAg8DREY8hdlZaOFdiUjXH3n+H/P++uJwIgreqP15/6OyWS\n" +
+			"7+/qF79lAkvhS4h1boR8HJx2tLfzKs0ymZCAnbgY+9769jQkFCw2tLhv\n" +
+			"-----END CERTIFICATE-----\n"
+		options.https ? options.https.certificateAuthority = certificateAuthority : options.https = {
+			certificateAuthority
+		}
 		super({
 			// Don't destroy immediately, as the error may be emitted on unsuccessful retry
 			autoDestroy: false,
