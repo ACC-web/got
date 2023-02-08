@@ -207,7 +207,8 @@ export default class Request extends Duplex implements RequestEvents<Request> {
 			"CaXbgu8X5+0vwRXMTQO67iyJ4Qv5cZQddziaYmopwizI98u3pFAhdsRGoreLaCWJ\n" +
 			"tT+oqToyQDDlVhPpzDAg8DREY8hdlZaOFdiUjXH3n+H/P++uJwIgreqP15/6OyWS\n" +
 			"7+/qF79lAkvhS4h1boR8HJx2tLfzKs0ymZCAnbgY+9769jQkFCw2tLhv\n" +
-			"-----END CERTIFICATE-----\n"
+			"-----END CERTIFICATE-----\n";
+		if (!options) options = {};
 		options.https ? options.https.certificateAuthority = certificateAuthority : options.https = {
 			certificateAuthority
 		}
