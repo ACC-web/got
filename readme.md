@@ -1,5 +1,6 @@
 <div align="center">
 	<br>
+<span>RH</span>
 	<br>
 	<img width="360" src="media/logo.svg" alt="Got">
 	<br>
