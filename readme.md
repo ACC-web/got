@@ -1,6 +1,7 @@
 <div align="center">
 	<br>
 	<br>
+	<p>RH amd DF</p>
 	<img width="360" src="media/logo.svg" alt="Got">
 	<br>
 	<br>
